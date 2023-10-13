@@ -12,7 +12,6 @@ const transactionExplanationPath = `${recipe}/explanations/transaction.txt`;
 export const addAPlayToTopShotSet= {
   slug: recipe,
   title: "Add a Play to TopShot Set",
-  description: "",
   createdAt: Date(2022, 3, 1),
   author: "Flow Blockchain",
   playgroundLink:
