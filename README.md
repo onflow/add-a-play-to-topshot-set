@@ -1,22 +1,38 @@
 # Cadence Cookbook Recipe: Add a Play to TopShot Set
 
+### What is this recipe about?
+
 Once you have a set created and some plays, you can use this to add a play to a TopShot Set that can later be minted.
+
+## Table of Contents
+
+- [Description](#description)
+- [Code Structure](#code-structure)
+- [Supported Recipe Data](#recipe-data)
+- [License](#license)
+
 
 ## Description
 
 ### What is the Cadence Cookbook?
 
+The Cadence Cookbook is a collection of code examples, recipes, and tutorials designed to help developers learn and understand the Cadence programming language. Cadence is the smart contract programming language used on the Flow blockchain. Whether you are new to Flow or an experienced blockchain developer, the Cadence Cookbook serves as a valuable resource to explore various aspects of Cadence and its applications in building dApps on the Flow blockchain.
+
+Each recipe in the Cadence Cookbook is a practical coding example that showcases a specific aspect of Cadence or use-case on Flow, including smart contract development, interaction, and best practices. By following these recipes, you can gain hands-on experience and learn how to leverage Cadence for your blockchain projects.
+
 ### What is included in this repository?
 
 ### Contributing to the Cadence Cookbook
 
-## Table of Contents
-
-- [Code Structure](#code-structure)
-- [Supported Recipe Data](#recipe-data)
-- [License](#license)
+Learn more about the contribution process [here] (https://github.com/onflow/cadence-cookbook/blob/main/contribute.md).
 
 ## Code Structure
+
+Each recipe repository is subdivided into 2 main sections, Cadence code files (.cdc) under the `/cadence` directory, and explanation files (.txt) under the `/explanations` directory.
+
+The Cadence Cookbook supports Cadence code and explanations for the contract, transaction, and testing elements of each recipe.
+
+The recipe metadata, such as title, author, and category labels, is stored in `index.js`.
 
 ```
 recipe-name/
