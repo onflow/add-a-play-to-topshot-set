@@ -11,7 +11,6 @@ Once you have a set created and some plays, you can use this to add a play to a 
 - [Supported Recipe Data](#recipe-data)
 - [License](#license)
 
-
 ## Description
 
 ### What is the Cadence Cookbook?
