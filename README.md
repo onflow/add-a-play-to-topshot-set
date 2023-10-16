@@ -7,7 +7,7 @@ Once you have a set created and some plays, you can use this to add a play to a 
 ## Table of Contents
 
 - [Description](#description)
-- [Code Structure](#code-structure)
+- [What is included in this repository?](#what-is-included-in-this-repository)
 - [Supported Recipe Data](#recipe-data)
 - [License](#license)
 
@@ -20,19 +20,18 @@ The Cadence Cookbook is a collection of code examples, recipes, and tutorials de
 
 Each recipe in the Cadence Cookbook is a practical coding example that showcases a specific aspect of Cadence or use-case on Flow, including smart contract development, interaction, and best practices. By following these recipes, you can gain hands-on experience and learn how to leverage Cadence for your blockchain projects.
 
-### What is included in this repository?
 
 ### Contributing to the Cadence Cookbook
 
 Learn more about the contribution process [here] (https://github.com/onflow/cadence-cookbook/blob/main/contribute.md).
 
-## Code Structure
+## What is included in this repository?
 
 Each recipe repository is subdivided into 2 main sections, Cadence code files (.cdc) under the `/cadence` directory, and explanation files (.txt) under the `/explanations` directory.
 
 The Cadence Cookbook supports Cadence code and explanations for the contract, transaction, and testing elements of each recipe.
 
-The recipe metadata, such as title, author, and category labels, is stored in `index.js`.
+Recipe metadata, such as title, author, and category labels, is stored in `index.js`. Each recipe also includes a link to a live, runnable example of the corresponding code in the [Flow Playground](https://play.flow.com).
 
 ```
 recipe-name/
@@ -50,6 +49,21 @@ recipe-name/
 ```
 
 ## Supported Recipe Data
+
+- `const recipe`: defines a unique identifier (slug) for the recipe
+- `title`: indicates the title of the recipe
+- `featuredText`(optional): a subheading for the recipe title
+- `createdAt`: date on which recipe was added to the Cadence Cookbook
+- `author`: contributor of the recipe
+- `playgroundLink`: a link to Flow Playground containing the deployed recipe code
+- `excerpt`: a brief description of the recipe contents
+- `smartContractCode`: path to location of Cadence smart contract code example
+- `smartContractExplanation`: path to location of smart contract code explanation
+- `transactionCode`: path to location of Cadence transaction code example
+- `transactionExplanation`: path to location of transaction code explanation
+- `testsPath`: path to location of Cadence test cases code example
+- `testsExplanationPath`: path to location of test cases code explanation
+
 
 ```
 // Pass the repo name
