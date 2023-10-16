@@ -23,7 +23,7 @@ Each recipe in the Cadence Cookbook is a practical coding example that showcases
 
 ### Contributing to the Cadence Cookbook
 
-Learn more about the contribution process [here] (https://github.com/onflow/cadence-cookbook/blob/main/contribute.md).
+Learn more about the contribution process [here](https://github.com/onflow/cadence-cookbook/blob/main/contribute.md).
 
 ## What is included in this repository?
 
