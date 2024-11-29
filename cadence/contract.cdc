@@ -1,4 +1,8 @@
+import TopShot from 0x01
+
 // More TopShot Code Above
+
+access(all) event PlayAddedToSet(setID: UInt32, playID: UInt32)
 
 access(all) resource Set {
 
@@ -11,6 +15,23 @@ access(all) resource Set {
     // The Set needs to be not locked
     // The Play can't have already been added to the Set
     //
+
+    /// Resource fields
+    access(all) var locked: Bool
+    access(all) var plays: [UInt32]
+    access(all) var retired: {UInt32: Bool}
+    access(all) var numberMintedPerPlay: {UInt32: UInt32}
+    access(all) let setID: UInt32
+
+    // Resource initializer
+    init(setID: UInt32) {
+        self.locked = false
+        self.plays = []
+        self.retired = {}
+        self.numberMintedPerPlay = {}
+        self.setID = setID
+    }
+
     access(all) fun addPlay(playID: UInt32) {
         pre {
             TopShot.playDatas[playID] != nil: "Cannot add the Play to Set: Play doesn't exist."
