@@ -29,6 +29,5 @@ access(all) resource Set {
 
         emit PlayAddedToSet(setID: self.setID, playID: playID)
     }
-    ....
 }
 // More TopShot Code Below
