@@ -14,7 +14,15 @@ jobs:
         run: |
           brew update
           brew install flow-cli
-          flow init --reset
+
+      - name: Initialize Flow
+        run: |
+          if [ ! -f flow.json ]; then
+            echo "Initializing Flow project..."
+            flow init
+          else
+            echo "Flow project already initialized."
+          fi
 
       - name: Run Cadence Lint
         run: |
