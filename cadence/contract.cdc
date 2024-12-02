@@ -1,54 +1,56 @@
 import TopShot from 0xf8d6e0586b0a20c7
 
-// More TopShot Code Above
+access(all) contract Recipe {
+    // More TopShot Code Above
 
-access(all) event PlayAddedToSet(setID: UInt32, playID: UInt32)
+    access(all) event PlayAddedToSet(setID: UInt32, playID: UInt32)
 
-access(all) resource Set {
+    access(all) resource Set {
 
-    // addPlay adds a play to the set
-    //
-    // Parameters: playID: The ID of the Play that is being added
-    //
-    // Pre-Conditions:
-    // The Play needs to be an existing play
-    // The Set needs to be not locked
-    // The Play can't have already been added to the Set
-    //
+        // addPlay adds a play to the set
+        //
+        // Parameters: playID: The ID of the Play that is being added
+        //
+        // Pre-Conditions:
+        // The Play needs to be an existing play
+        // The Set needs to be not locked
+        // The Play can't have already been added to the Set
+        //
 
-    /// Resource fields
-    access(all) var locked: Bool
-    access(all) var plays: [UInt32]
-    access(all) var retired: {UInt32: Bool}
-    access(all) var numberMintedPerPlay: {UInt32: UInt32}
-    access(all) let setID: UInt32
+        /// Resource fields
+        access(all) var locked: Bool
+        access(all) var plays: [UInt32]
+        access(all) var retired: {UInt32: Bool}
+        access(all) var numberMintedPerPlay: {UInt32: UInt32}
+        access(all) let setID: UInt32
 
-    // Resource initializer
-    init(setID: UInt32) {
-        self.locked = false
-        self.plays = []
-        self.retired = {}
-        self.numberMintedPerPlay = {}
-        self.setID = setID
-    }
-
-    access(all) fun addPlay(playID: UInt32) {
-        pre {
-            TopShot.playDatas[playID] != nil: "Cannot add the Play to Set: Play doesn't exist."
-            !self.locked: "Cannot add the play to the Set after the set has been locked."
-            self.numberMintedPerPlay[playID] == nil: "The play has already been added to the set."
+        // Resource initializer
+        init(setID: UInt32) {
+            self.locked = false
+            self.plays = []
+            self.retired = {}
+            self.numberMintedPerPlay = {}
+            self.setID = setID
         }
 
-        // Add the Play to the array of Plays
-        self.plays.append(playID)
+        access(all) fun addPlay(playID: UInt32) {
+            pre {
+                TopShot.playDatas[playID] != nil: "Cannot add the Play to Set: Play doesn't exist."
+                !self.locked: "Cannot add the play to the Set after the set has been locked."
+                self.numberMintedPerPlay[playID] == nil: "The play has already been added to the set."
+            }
 
-        // Open the Play up for minting
-        self.retired[playID] = false
+            // Add the Play to the array of Plays
+            self.plays.append(playID)
 
-        // Initialize the Moment count to zero
-        self.numberMintedPerPlay[playID] = 0
+            // Open the Play up for minting
+            self.retired[playID] = false
 
-        emit PlayAddedToSet(setID: self.setID, playID: playID)
+            // Initialize the Moment count to zero
+            self.numberMintedPerPlay[playID] = 0
+
+            emit PlayAddedToSet(setID: self.setID, playID: playID)
+        }
     }
+    // More TopShot Code Below
 }
-// More TopShot Code Below

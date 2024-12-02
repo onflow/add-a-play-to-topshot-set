@@ -117,7 +117,7 @@ access(all) contract TopShot: NonFungibleToken {
     access(all) var currentSeries: UInt32
 
     // Variable size dictionary of Play structs
-    access(self) var playDatas: {UInt32: Play}
+    access(all) var playDatas: {UInt32: Play}
 
     // Variable size dictionary of SetData structs
     access(self) var setDatas: {UInt32: SetData}

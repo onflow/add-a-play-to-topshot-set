@@ -12,7 +12,6 @@ transaction {
 
         // Borrow the specified Set from the admin
         self.borrowedSet = self.admin.borrowSet(setID: 1)
-            ?? panic("Cannot borrow the specified set")
     }
 
     execute {
