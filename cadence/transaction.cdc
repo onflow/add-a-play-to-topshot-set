@@ -1,4 +1,4 @@
-import TopShot from 0x01
+import TopShot from TopShot
 
 transaction {
     

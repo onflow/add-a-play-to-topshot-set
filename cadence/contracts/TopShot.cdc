@@ -43,10 +43,11 @@
 
 */
 
-import FungibleToken from FungibleToken
-import NonFungibleToken from NonFungibleToken
-import MetadataViews from MetadataViews
-import TopShotLocking from TopShotLocking
+import FungibleToken from 0xee82856bf20e2aa6
+import NonFungibleToken from 0xf8d6e0586b0a20c7
+import MetadataViews from 0xf8d6e0586b0a20c7
+import ViewResolver from 0xf8d6e0586b0a20c7
+import TopShotLocking from 0xf8d6e0586b0a20c7
 
 access(all) contract TopShot: NonFungibleToken {
     // -----------------------------------------------------------------------
