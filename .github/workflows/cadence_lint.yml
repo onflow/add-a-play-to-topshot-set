@@ -29,12 +29,17 @@ jobs:
           echo "Starting Flow emulator in the background..."
           nohup flow emulator start > emulator.log 2>&1 &
           sleep 5 # Wait for the emulator to start
+          flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json                           
 
       - name: Run Transaction
         run: |
           echo "Running recipe transaction with Flow emulator..."
-          flow transactions send cadence/transaction.cdc --signer emulator-account
-
+          TRANSACTION_OUTPUT=$(flow transactions send cadence/transaction.cdc --signer emulator-account)
+          echo "$TRANSACTION_OUTPUT"
+          if echo "$TRANSACTION_OUTPUT" | grep -q "Transaction Error"; then
+            echo "Transaction Error detected, failing the action..."
+            exit 1
+          fi
 
       - name: Run Cadence Lint
         run: |
