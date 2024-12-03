@@ -1,4 +1,4 @@
-import TopShot from 0xf8d6e0586b0a20c7
+import "TopShot"
 
 access(all) contract Recipe {
     // More TopShot Code Above
