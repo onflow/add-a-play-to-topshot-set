@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: 'true'
-
+          
       - name: Install Flow CLI
         run: |
           brew update
@@ -23,6 +23,18 @@ jobs:
           else
             echo "Flow project already initialized."
           fi
+
+      - name: Start Flow Emulator
+        run: |
+          echo "Starting Flow emulator in the background..."
+          nohup flow emulator start > emulator.log 2>&1 &
+          sleep 5 # Wait for the emulator to start
+
+      - name: Run Transaction
+        run: |
+          echo "Running recipe transaction with Flow emulator..."
+          flow transactions send cadence/transaction.cdc --signer emulator-account
+
 
       - name: Run Cadence Lint
         run: |
