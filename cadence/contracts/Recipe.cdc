@@ -19,9 +19,9 @@ access(all) contract Recipe {
 
         /// Resource fields
         access(all) var locked: Bool
-        access(all) var plays: [UInt32]
-        access(all) var retired: {UInt32: Bool}
-        access(all) var numberMintedPerPlay: {UInt32: UInt32}
+        access(all) let plays: [UInt32]
+        access(all) let retired: {UInt32: Bool}
+        access(all) let numberMintedPerPlay: {UInt32: UInt32}
         access(all) let setID: UInt32
 
         // Resource initializer
@@ -35,7 +35,7 @@ access(all) contract Recipe {
 
         access(all) fun addPlay(playID: UInt32) {
             pre {
-                TopShot.playDatas[playID] != nil: "Cannot add the Play to Set: Play doesn't exist."
+                TopShot.getPlayMetaData(playID: playID) != nil: "Cannot add the Play to Set: Play doesn't exist."
                 !self.locked: "Cannot add the play to the Set after the set has been locked."
                 self.numberMintedPerPlay[playID] == nil: "The play has already been added to the set."
             }
