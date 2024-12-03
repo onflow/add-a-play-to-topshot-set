@@ -1,6 +1,7 @@
 import TopShot from 0xf8d6e0586b0a20c7
 
 access(all) contract Recipe {
+    // This is a snippet extracting the relevant logic from the TopShot contract for demonstration purposes
     // More TopShot Code Above
 
     access(all) event PlayAddedToSet(setID: UInt32, playID: UInt32)
