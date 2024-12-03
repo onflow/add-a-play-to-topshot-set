@@ -34,17 +34,17 @@ Recipe metadata, such as title, author, and category labels, is stored in `index
 
 ```
 recipe-name/
-├── cadence/              # Cadence files for recipe examples
-│   ├── contract.cdc          # Contract code
-│   ├── transaction.cdc          # Transaction code
-│   ├── tests.cdc          # Tests code
-├── explanations/         # Explanation files for recipe examples
-│   ├── contract.txt          # Contract code explanation
-│    ├── transaction.txt          # Transaction code explanation
-│    ├── tests.txt         # Tests code explanation
-├── index.js        # Root file for storing recipe metadata
-├── README.md             # This README file
-└── LICENSE               # License information
+├── cadence/                          # Cadence files for recipe examples
+│   ├── contracts/Recipe.cdc          # Contract code
+│   ├── transactions/create_plays.cdc   # Transaction code
+│   ├── tests/Recipe_test.cdc           # Tests code
+├── explanations/           # Explanation files for recipe examples
+│   ├── contract.txt        # Contract code explanation
+│   ├── transaction.txt     # Transaction code explanation
+│   ├── tests.txt           # Tests code explanation
+├── index.js                # Root file for storing recipe metadata
+├── README.md               # This README file
+└── LICENSE                 # License information
 ```
 
 ## Supported Recipe Data
@@ -108,7 +108,7 @@ Before deploying and running the recipe:
 
 ### Step 1: Start the Flow Emulator
 
-Start the Flow emulator to simulate the blockchain environment locally:
+Start the Flow emulator to simulate the blockchain environment locally
 
 ```bash
 flow emulator start
@@ -116,7 +116,7 @@ flow emulator start
 
 ### Step 2: Deploy Project Contracts
 
-Deploy the recipe's contracts to the emulator. The `Recipe` contract is located at `./contract.cdc`. Other contracts on which the recipe is dependent can be found in the `./contracts/` directory.
+Deploy contracts to the emulator. This will deploy all the contracts specified in the _deployments_ section of `flow.json` whether project contracts or dependencies
 
 ```bash
 flow project deploy --network=emulator                                  
@@ -127,7 +127,7 @@ flow project deploy --network=emulator
 The transaction file is located in `./cadence/transaction.cdc`. To run the transaction, execute the following command:
 
 ```bash
-flow transactions send cadence/transaction.cdc --signer emulator-account
+flow transactions send cadence/transactions/create_plays.cdc --signer emulator-account
 ```
 
 To verify the transaction's execution, check the emulator logs printed during the transaction for confirmation messages. You can add the `--log-level debug` flag to your Flow CLI command for more detailed output during contract deployment or transaction execution.
