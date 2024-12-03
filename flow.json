@@ -1,12 +1,12 @@
 {
   "contracts": {
-	"Recipe": {
+    "Recipe": {
       "source": "./cadence/contract.cdc",
       "aliases": {
         "emulator": "0xf8d6e0586b0a20c7"
       }
     },
-	"TopShot": {
+    "TopShot": {
       "source": "./cadence/contracts/TopShot.cdc",
       "aliases": {
         "emulator": "0xf8d6e0586b0a20c7"
@@ -35,13 +35,8 @@
     }
   },
   "deployments": {
-  "emulator": {
-    "emulator-account": [
-	 "TopShotLocking",
-      "TopShot",
-	  "Recipe"
-     
-    ]
+    "emulator": {
+      "emulator-account": ["TopShotLocking", "TopShot", "Recipe"]
+    }
   }
-}
 }

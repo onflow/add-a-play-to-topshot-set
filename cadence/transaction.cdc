@@ -10,11 +10,19 @@ transaction {
         self.admin = acct.storage.borrow<&TopShot.Admin>(from: /storage/TopShotAdmin)
             ?? panic("Cannot borrow admin resource")
 
+        // Ensure the Set resource exists
+        if acct.storage.borrow<&TopShot.Set>(from: /storage/TopShotSet) == nil {
+            let newSet = self.admin.createSet(name: "test_set")
+            acct.storage.save(newSet, to: /storage/TopShotSet)
+        }            
+
         // Borrow the specified Set from the admin
         self.borrowedSet = self.admin.borrowSet(setID: 1)
     }
 
     execute {
+        // Create plays 
+        
         // Add plays to the set
         self.borrowedSet.addPlay(playID: 1)
         self.borrowedSet.addPlay(playID: 2)
