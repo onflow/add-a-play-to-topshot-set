@@ -24,6 +24,15 @@ jobs:
             echo "Flow project already initialized."
           fi
 
+      - name: Lint Cadence Tests
+        run: |
+          if test -f "cadence/tests.cdc"; then
+            echo "Linting Cadence tests in the current repository"
+            flow cadence lint ./cadence/tests.cdc
+          else
+            echo "No Cadence tests found. Skipping lint."
+          fi
+
       - name: Run Cadence Tests
         run: |
           if test -f "cadence/tests.cdc"; then

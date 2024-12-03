@@ -44,4 +44,5 @@ jobs:
       - name: Run Cadence Lint
         run: |
           echo "Running Cadence linter on all .cdc files in the current repository"
-          flow cadence lint **/cadence/*.cdc
+          flow cadence lint ./cadence/contract.cdc
+          flow cadence lint ./cadence/transaction.cdc
