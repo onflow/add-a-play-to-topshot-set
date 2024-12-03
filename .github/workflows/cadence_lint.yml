@@ -1,4 +1,4 @@
-name: Run Cadence Lint
+name: Run Cadence Contract Compilation, Deployment, Transaction Excution, and Lint
 on: push
 
 jobs:
