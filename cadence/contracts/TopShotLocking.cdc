@@ -1,3 +1,5 @@
+// See https://github.com/dapperlabs/nba-smart-contracts/tree/master/contracts for the latest official version of the TopShot contracts
+
 import NonFungibleToken from 0xf8d6e0586b0a20c7
 
 access(all) contract TopShotLocking {

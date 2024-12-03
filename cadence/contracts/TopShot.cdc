@@ -1,3 +1,5 @@
+// See https://github.com/dapperlabs/nba-smart-contracts/tree/master/contracts for the latest official version of the TopShot contracts
+
 /*
     Description: Central Smart Contract for NBA TopShot
 
