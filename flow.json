@@ -8,6 +8,15 @@
 		}
 	},
 	"dependencies": {
+		"Burner": {
+			"source": "mainnet://f233dcee88fe0abe.Burner",
+			"hash": "71af18e227984cd434a3ad00bb2f3618b76482842bae920ee55662c37c8bf331",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "f233dcee88fe0abe",
+				"testnet": "9a0766d93b6608b7"
+			}
+		},
 		"FlowToken": {
 			"source": "mainnet://1654653399040a61.FlowToken",
 			"hash": "cefb25fd19d9fc80ce02896267eb6157a6b0df7b1935caa8641421fe34c0e67a",
@@ -62,15 +71,6 @@
 				"testnet": "631e88ae7f1d7c20"
 			}
 		},
-		"ViewResolver": {
-			"source": "mainnet://1d7e57aa55817448.ViewResolver",
-			"hash": "374a1994046bac9f6228b4843cb32393ef40554df9bd9907a702d098a2987bde",
-			"aliases": {
-				"emulator": "f8d6e0586b0a20c7",
-				"mainnet": "1d7e57aa55817448",
-				"testnet": "631e88ae7f1d7c20"
-			}
-		},
 		"TopShot": {
 			"source": "mainnet://0b2a3299cc857e29.TopShot",
 			"hash": "804d7381441bea4ed1a0c74e91e0c7c54322b353d236af911f67783263f177f9",
@@ -87,6 +87,15 @@
 				"emulator": "f8d6e0586b0a20c7",
 				"mainnet": "0b2a3299cc857e29",
 				"testnet": "877931736ee77cff"
+			}
+		},
+		"ViewResolver": {
+			"source": "mainnet://1d7e57aa55817448.ViewResolver",
+			"hash": "374a1994046bac9f6228b4843cb32393ef40554df9bd9907a702d098a2987bde",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
 			}
 		}
 	},

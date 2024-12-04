@@ -23,6 +23,7 @@ jobs:
           else
             echo "Flow project already initialized."
           fi
+          flow dependencies install
 
       - name: Start Flow Emulator
         run: |
@@ -44,5 +45,4 @@ jobs:
       - name: Run Cadence Lint
         run: |
           echo "Running Cadence linter on .cdc files in the current repository"
-          flow cadence lint ./cadence/contract.cdc
-          flow cadence lint ./cadence/transaction.cdc
+          flow cadence lint ./cadence/**/*.cdc
