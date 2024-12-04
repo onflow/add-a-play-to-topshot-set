@@ -1,9 +1,11 @@
-Once you have a set created and you've created some plays, you can then add a play to your set by calling the addPlay function in your set.
+The Recipe contract demonstrates how to interact with TopShot Sets by allowing Plays to be added to a specific Set. This functionality is essential for enabling Plays to be minted as Moments later in the lifecycle of the application. The core logic for adding Plays is implemented in the addPlay function within the Set resource. 
 
-You would need to pass in the playId's to have them available in the set. Before the function goes through it will check to see if the playID actually exists. If not you'll need to use another one, or create on.
+To add a Play to a Set, one must call the addPlay function with the ID of the Play (playID) you want to include. The function ensures that certain preconditions are met before proceeding. First, it checks whether the playID exists in the TopShot contract by querying its metadata. If the Play does not exist, the function will fail, and you will need to either use an existing playID or create a new Play. This step ensures that only valid Plays are added to the Set.
 
-It will also check if the Set has been locked, meaning no more plays can be added, or if the play has already been added to the set.
+The function also verifies that the Set is not locked. A locked Set cannot have new Plays added to it, which helps maintain the integrity of finalized Sets. Additionally, the function checks whether the playID has already been added to the Set. This prevents duplicate entries, ensuring each Play is unique within the Set.
 
-Once that check is complete, it will add the play to the array of play ID's in the set. The function will also include the play ID in a retired dictionary and set the boolean as false. The number minted per play ID will also be included in a dictionary and initialized as 0.
+Once these checks are complete, the playID is added to the array of Plays (plays) associated with the Set. The function also updates a dictionary called retired, setting the status of the playID to false, meaning it is active and can be used for minting Moments. Another dictionary, numberMintedPerPlay, is updated to initialize the count of Moments minted for this Play at zero.
 
-Finally you would emit an event that the play has been added to the set.
+Finally, the addPlay function emits an event, PlayAddedToSet, which signals that a Play has been successfully added to the Set. This event includes the setID and playID and provides an auditable record of the action.
+
+The Set resource also includes several fields that store important information. The plays array keeps track of all the Plays added to the Set. The retired dictionary indicates whether a Play has been retired (i.e., no longer available for minting Moments), while the numberMintedPerPlay dictionary tracks how many Moments have been minted for each Play in the Set. The locked field determines whether the Set can still accept new Plays, and the setID uniquely identifies the Set.

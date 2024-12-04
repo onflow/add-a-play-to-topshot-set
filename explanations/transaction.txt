@@ -1,5 +1,15 @@
-To add a play to a set you will need to borrow a reference to the admin resource from the Auth Account.
+This transaction focuses on adding Plays to a TopShot Set. It follows a structured process to ensure that both the Set and the Plays exist and are correctly updated.
 
-Once you do, you will need to borrow the set that you would like access to by calling the borrowSet function. This gets whatever setID is created that you want to have access to.
+First, the transaction begins by borrowing a reference to the Admin resource from the account’s storage. This resource provides administrative access to manage Sets and Plays. Without this reference, the transaction cannot proceed, as the Admin resource is essential for creating Sets or Plays.
 
-When that happens you would just use the addPlay function to add whichever plays you have already created to this set.
+Next, the transaction checks if a specific Set exists in the account’s storage. If the Set is not present, it creates a new one using the createSet function provided by the Admin resource. This ensures that there is always a valid Set available for managing Plays. Once the Set is confirmed or created, the transaction borrows a reference to it by specifying its setID.
+
+The transaction then moves on to ensure that the Plays to be added to the Set exist. It does this by iterating through a predefined list of playIDs. For each playID, it checks if the Play's metadata exists. If the Play is missing, it creates the Play using the createPlay function, passing dynamically generated metadata such as the player’s name and play description. This step guarantees that only valid Plays are added to the Set.
+
+Finally, the transaction uses the addPlay function on the borrowed Set to add each Play by its playID. This function performs several checks:
+
+- It ensures the Play exists.
+- It verifies the Set is not locked, meaning it can still accept new Plays.
+- It checks that the Play has not already been added to the Set.
+
+Once these conditions are met, the Play is added to the Set, and its retired status and minted count are initialized. After all Plays have been added, a success message is logged to indicate the operation has completed.
