@@ -125,7 +125,7 @@ flow project deploy --network=emulator
 
 ### Step 3: Run the Transaction
 
-The transaction file is located in `./cadence/transactions`. To run the transaction, execute the following command:
+Transactions associated with the recipe are located in `./cadence/transactions`. To run a transaction, execute the following command:
 
 ```bash
 flow transactions send cadence/transactions/TRANSACTION_NAME.cdc --signer emulator-account
