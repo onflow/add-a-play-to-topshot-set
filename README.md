@@ -9,7 +9,7 @@ Once you have a set created and some plays, you can use this to add a play to a 
 - [Description](#description)
 - [What is included in this repository?](#what-is-included-in-this-repository)
 - [Supported Recipe Data](#recipe-data)
--[Deploying Recipe Contracts and Running Transactions Locally (Flow Emulator)](#deploying-recipe-contracts-and-running-transactions-locally-flow-emulator)
+- [Deploying Recipe Contracts and Running Transactions Locally (Flow Emulator)](#deploying-recipe-contracts-and-running-transactions-locally-flow-emulator)
 - [License](#license)
 
 ## Description
