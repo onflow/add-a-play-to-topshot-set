@@ -9,7 +9,7 @@ Once you have a set created and some plays, you can use this to add a play to a 
 - [Description](#description)
 - [What is included in this repository?](#what-is-included-in-this-repository)
 - [Supported Recipe Data](#recipe-data)
--[Deploying Recipe Contracts and Running Transactions Locally (Flow Emulator)](#deploying-recipe-contracts-and-running-transactions-locally-flow-emulator)
+- [Deploying Recipe Contracts and Running Transactions Locally (Flow Emulator)](#deploying-recipe-contracts-and-running-transactions-locally-flow-emulator)
 - [License](#license)
 
 ## Description
@@ -114,20 +114,22 @@ Start the Flow emulator to simulate the blockchain environment locally
 flow emulator start
 ```
 
-### Step 2: Deploy Project Contracts
+### Step 2: Install Dependencies and Deploy Project Contracts
 
-Deploy contracts to the emulator. This will deploy all the contracts specified in the _deployments_ section of `flow.json` whether project contracts or dependencies
+Deploy contracts to the emulator. This will deploy all the contracts specified in the _deployments_ section of `flow.json` whether project contracts or dependencies.
 
 ```bash
+flow dependencies install
 flow project deploy --network=emulator                                  
 ```
 
 ### Step 3: Run the Transaction
 
-The transaction file is located in `./cadence/transactions/create_plays.cdc`. To run the transaction, execute the following command:
+Transactions associated with the recipe are located in `./cadence/transactions`. To run a transaction, execute the following command:
+
 
 ```bash
-flow transactions send cadence/transactions/create_plays.cdc --signer emulator-account
+flow transactions send cadence/transactions/TRANSACTION_NAME.cdc --signer emulator-account
 ```
 
 To verify the transaction's execution, check the emulator logs printed during the transaction for confirmation messages. You can add the `--log-level debug` flag to your Flow CLI command for more detailed output during contract deployment or transaction execution.
