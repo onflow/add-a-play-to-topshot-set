@@ -1,5 +1,4 @@
 import Test
-import "test_helpers.cdc"
 
 access(all)
 fun setup() {
